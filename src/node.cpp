@@ -60,7 +60,7 @@ void publish_error(node& node){
   e_msg.gain_position = {node.kx,node.kv, node.kiX, node.kxr,0,0,0};
   e_msg.gain_attitude = {node.kR, node.kW, node.kiR, node.kRr, 0,0,0};
   for(int i = 0; i <3;i++){
-    e_msg.gain_position[3+i] = node.eiX[i];
+    e_msg.gain_position[4+i] = node.eiX[i];
     e_msg.gain_attitude[4+i] = node.eiR[i];
   }
   node.pub_.publish(e_msg);
