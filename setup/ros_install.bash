@@ -1,5 +1,9 @@
 #!/bin/bash
 # time synchronization
+read -p "Do you want to install ROS Kinetic on Ubuntu? [Y/N]" -n 1 -r
+echo    # (optional) move to a new line
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
 echo "Starting to install ROS and associated stuff"
 sudo apt-get -y install chrony
 sudo apt-get -y install ntpdate
@@ -34,3 +38,7 @@ echo "Now we'll build!"
 echo "If the make fails then just restart the terminal and run catkin_make in this directory!"
 
 catkin_make
+else
+echo "Read ROS Tutorials"
+    exit 1
+fi
